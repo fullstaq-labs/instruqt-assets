@@ -1,0 +1,7 @@
+apiVersion: v1
+data:
+  category: abc
+kind: ConfigMap
+metadata:
+  name: configmap-category
+  namespace: application1
