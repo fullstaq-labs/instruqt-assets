@@ -23,4 +23,3 @@ spec:
           imagePullPolicy: IfNotPresent
           name: nginx
       nodeName: staging-node1
-      terminationGracePeriodSeconds: 3
