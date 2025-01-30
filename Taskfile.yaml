@@ -1,0 +1,20 @@
+# https://taskfile.dev
+version: "3"
+
+interval: 500ms
+
+silent: true
+
+tasks:
+  default: task --list
+
+  download-asset:
+    desc: "Downloading asset from GitHub"
+    requires:
+      vars:
+        - SLUG
+        - CHALLANGE_NAME
+    cmds:
+      - cmd: wget https://storage.googleapis.com/fs-instruqt-assets/{{.SLUG}}-{{.CHALLANGE_NAME}}-bundle.tar.gz
+      - cmd: tar xzvf {{.SLUG}}-{{.CHALLANGE_NAME}}-bundle.tar.gz
+      - cmd: rm {{.SLUG}}-{{.CHALLANGE_NAME}}-bundle.tar.gz
