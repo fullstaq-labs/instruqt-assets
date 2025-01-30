@@ -13,7 +13,7 @@ tasks:
     cmds:
       - cmd: echo 'alias workdir="task -t /tmp/Taskfile.yaml workdir"' >> /root/.bashrc
       - cmd: echo 'alias download-asset="task -t /tmp/Taskfile.yaml download-asset"' >> /root/.bashrc
-
+      - cmd: source /root/.bashrc
   workdir:
     desc: "Create the workdir"
     requires:
@@ -24,6 +24,7 @@ tasks:
 
   download-asset:
     desc: "Downloading asset from GitHub"
+    dir: "{{.USER_WORKING_DIR}}"
     requires:
       vars:
         - SLUG
