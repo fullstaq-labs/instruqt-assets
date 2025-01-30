@@ -11,8 +11,9 @@ tasks:
   aliases:
     desc: "Added aliases for tasks"
     cmds:
-      - cmd: echo 'alias workdir="task -t /tmp/Taskfile.yaml workdir "' >> /root/.bashrc
+      - cmd: echo 'alias workdir="task -t /tmp/Taskfile.yaml workdir"' >> /root/.bashrc
       - cmd: echo 'alias download-asset="task -t /tmp/Taskfile.yaml download-asset"' >> /root/.bashrc
+
   workdir:
     desc: "Create the workdir"
     requires:
