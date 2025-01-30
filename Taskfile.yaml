@@ -28,7 +28,6 @@ tasks:
         - WORKDIR
     cmds:
       - cmd: mkdir -p /workspace/{{.WORKDIR}}/examples
-      - cmd: set-workdir /workspace/{{.WORKDIR}}/
 
   download-asset:
     desc: "Downloading asset from GitHub"
@@ -40,4 +39,4 @@ tasks:
         - FILE
         - WORKDIR
     cmds:
-      - cmd: wget https://raw.githubusercontent.com/fullstaq-labs/instruqt-assets/main/{{.TRACK}}/{{.CHALLANGE}}/{{.FILE}} -P /workspace/{{.WORKDIR}}/examples
+      - cmd: wget https://raw.githubusercontent.com/fullstaq-labs/instruqt-assets/main/{{.TRACK}}/{{.CHALLANGE}}/{{.FILE}}
