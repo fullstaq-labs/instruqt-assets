@@ -24,9 +24,9 @@ tasks:
     desc: "Create the workdir"
     requires:
       vars:
-        - WORKDIR
+        - DIR
     cmds:
-      - cmd: mkdir -p /workspace/{{.WORKDIR}}/examples
+      - cmd: mkdir -p /workspace/{{.DIR}}/examples
 
   download-asset:
     desc: "Downloading asset from GitHub"
@@ -36,6 +36,6 @@ tasks:
         - TRACK
         - CHALLANGE
         - FILE
-        - WORKDIR
+        - DIR
     cmds:
       - cmd: wget https://raw.githubusercontent.com/fullstaq-labs/instruqt-assets/main/{{.TRACK}}/{{.CHALLANGE}}/{{.FILE}}
