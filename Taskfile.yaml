@@ -26,7 +26,7 @@ tasks:
       vars:
         - DIR
     cmds:
-      - cmd: mkdir -p /workspace/{{.DIR}}/examples
+      - cmd: mkdir -p /workspace/{{.DIR}}/example
 
   download-asset:
     desc: "Downloading asset from GitHub"
