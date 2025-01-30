@@ -8,12 +8,19 @@ silent: true
 tasks:
   default: task --list
 
+  prepare-env:
+    cmds:
+      - task: aliases
+      - task: workdir
+
   aliases:
     desc: "Added aliases for tasks"
     cmds:
+      - cmd: echo "source /usr/share/bash-completion/bash_completion" >> /root/.bashrc
+      - cmd: echo "complete -F __start_kubectl k" >> /root/.bashrc
       - cmd: echo 'alias workdir="task -t /tmp/Taskfile.yaml workdir"' >> /root/.bashrc
       - cmd: echo 'alias download-asset="task -t /tmp/Taskfile.yaml download-asset"' >> /root/.bashrc
-      - cmd: source /root/.bashrc
+
   workdir:
     desc: "Create the workdir"
     requires:
