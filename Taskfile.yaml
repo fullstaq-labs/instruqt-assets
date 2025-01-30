@@ -38,4 +38,4 @@ tasks:
         - CHALLANGE
         - FILE
     cmds:
-      - cmd: wget -q https://raw.githubusercontent.com/fullstaq-labs/instruqt-assets/main/{{.TRACK}}/{{.CHALLANGE}}/{{.FILE}}
+      - cmd: wget https://raw.githubusercontent.com/fullstaq-labs/instruqt-assets/main/{{.TRACK}}/{{.CHALLANGE}}/{{.FILE}}
