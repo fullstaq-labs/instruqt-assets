@@ -8,13 +8,25 @@ silent: true
 tasks:
   default: task --list
 
+  aliases:
+    desc: "Added aliases for tasks"
+    cmds:
+      - cmd: echo 'alias workdir="task -t /tmp/Taskfile.yaml workdir "' >> /root/.bashrc
+      - cmd: echo 'alias download-asset="task -t /tmp/Taskfile.yaml download-asset"' >> /root/.bashrc
+  workdir:
+    desc: "Create the workdir"
+    requires:
+      vars:
+        - WORKDIR
+    cmds:
+      - cmd: mkdir -p /workspace/{{.WORKDIR}}
+
   download-asset:
     desc: "Downloading asset from GitHub"
     requires:
       vars:
         - SLUG
         - CHALLANGE_NAME
+        - FILE
     cmds:
-      - cmd: wget https://storage.googleapis.com/fs-instruqt-assets/{{.SLUG}}-{{.CHALLANGE_NAME}}-bundle.tar.gz
-      - cmd: tar xzvf {{.SLUG}}-{{.CHALLANGE_NAME}}-bundle.tar.gz
-      - cmd: rm {{.SLUG}}-{{.CHALLANGE_NAME}}-bundle.tar.gz
+      - cmd: wget -q https://raw.githubusercontent.com/fullstaq-labs/instruqt-assets/main/{{.SLUG}}/{{.CHALLANGE_NAME}}/{{.FILE}}
