@@ -14,7 +14,7 @@ tasks:
       - task: workdir
 
   aliases:
-    desc: "Added aliases for tasks"
+    desc: "update .bashrc"
     cmds:
       - cmd: echo "source /usr/share/bash-completion/bash_completion" >> /root/.bashrc
       - cmd: echo "complete -F __start_kubectl k" >> /root/.bashrc
@@ -34,8 +34,8 @@ tasks:
     dir: "{{.USER_WORKING_DIR}}"
     requires:
       vars:
-        - SLUG
-        - CHALLANGE_NAME
+        - TRACK
+        - CHALLANGE
         - FILE
     cmds:
-      - cmd: wget -q https://raw.githubusercontent.com/fullstaq-labs/instruqt-assets/main/{{.SLUG}}/{{.CHALLANGE_NAME}}/{{.FILE}}
+      - cmd: wget -q https://raw.githubusercontent.com/fullstaq-labs/instruqt-assets/main/{{.TRACK}}/{{.CHALLANGE}}/{{.FILE}}
